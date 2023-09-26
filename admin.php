@@ -13,7 +13,7 @@
       <section class="col-sm-9">
        <form enctype="multipart/form-data" class="border p-4 rounded mb-5">
         <h2 class="text-center text-primary english">Admin Post</h2>
-    
+        <h2 class="text-center text-primary english">Admin Post</h2>
             <div class="form-group">
                 <label for="posttitle" class="english">Post Title</label>
                 <input type="text" class="form-control english" id="posttitle" name="posttitle">
