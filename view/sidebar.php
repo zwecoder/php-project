@@ -4,7 +4,7 @@
 }
 
 </style>
-<aside class="col-sm-3">
+<aside class="col-md-3 mt-4">
             <div class="list-group mylistgroup rounded-0" id="list-tab" role="">
                  <a href="#" class="list-group-item list-group-item-action active english" id="">one</a></li>
                  <a href="#" class="list-group-item list-group-item-action english">two</a></li>

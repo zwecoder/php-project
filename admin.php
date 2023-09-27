@@ -1,10 +1,16 @@
 <?php
    
        include_once "view/top.php";
+       
      include_once "view/nav.php";
     include_once "view/header.php";
     include_once "systemgen/postuploader.php";
-    if(checkSession("username")){
+    if(checkSession("username")==null){
+        header("location:index.php"); 
+    }
+    
+    else if(checkSession("username")){
+
        if(getsession("username")==="zwewathone"){
 
             if(isset($_POST['submit'])){
@@ -16,7 +22,17 @@
                 move_uploaded_file($_FILES['file']['tmp_name'],'assets/upload/'.$imglink);
                 
                $bol = insertPost($posttitle,$postwriter,$posttype,$postcontent,$imglink);
-                echo $bol;
+                if($bol>0){
+                    echo "<div class='container'><div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                    New Product created successfully!
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div></div>";
+                }else{
+                    echo "<div class='container'><div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                    Post insert failed!
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div></div>";
+                }
             }
        ?>
        <div class="container my-3">
@@ -54,7 +70,8 @@
 </div>
        
        <?php 
-       }else{
+       }
+       else{
         header("location:index.php");
        }
     }

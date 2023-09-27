@@ -9,7 +9,7 @@ function insertPost($posttitle,$postwriter,$posttype,$postcontent,$imglink){
         VALUES
         ('$posttitle','$postwriter',$posttype,'$postcontent','$imglink','$created_at')";
    $result=mysqli_query($db,$qry);
-   return $result?"True":"false"; 
+   return $result; 
 }
 
 ?>
