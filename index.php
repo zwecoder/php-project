@@ -7,7 +7,7 @@
 ?>
 <div class="container my-3">
     <div class="row g-0">
-        <?php include_once "view/sidebar.php"?>
+        //<?php include_once "view/sidebar.php"?>
       <section class="col-md-9">
         <div class="row justify-content-center">
           <?php
