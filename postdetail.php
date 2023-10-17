@@ -7,6 +7,7 @@
     if(isset($_GET['pid'])){
         $pid =$_GET['pid'];
         $result=getSinglePost($pid);
+
     }
 ?>
 <div class="container my-3">

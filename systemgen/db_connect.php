@@ -60,5 +60,34 @@ function encodePass($pass){
 function created_at(){
     return date("Y-m-d H:m:s",time());
 }
+ function generate_navlink(){
+  $db=dbConnect();
+  $qry="SELECT * FROM category";
+  $result=mysqli_query($db,$qry);
+  foreach($result as $result){
+                 echo "<li class='nav-item'>";
+                  echo "<a class='nav-link text-white english' href='category.php?category=".$result['id']."'>".$result['name']."</a>";
+                  echo "</li>";
+  }
+} 
+function generate_category(){
+  $db=dbConnect();
+  $qry="SELECT * FROM category";
+  $result=mysqli_query($db,$qry);
+  foreach($result as $result){
+                 echo "<option value=".$result['id'].">".$result['name']."</option>";
+  }
+} 
+function get_category_name($pid){
+  $db=dbConnect();
+  $qry="SELECT category FROM post WHERE id=$pid";
+  $result=mysqli_query($db,$qry);
+  
+  foreach($result as $result){
+    echo $result['category'];
+  }
+}
+
+
 
 ?>

@@ -1,3 +1,4 @@
+<?php require_once "systemgen/db_connect.php"; ?>
 <nav class="container-fluid bg-primary">
         <nav class="container navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
@@ -10,18 +11,10 @@
                  
                   
                   <li class="nav-item">
-                    <a class="nav-link text-white english" href="#">News</a>
+                    <a class="nav-link text-white english" href="index.php">News</a>
                   </li>
-                
-                  <li class="nav-item">
-                    <a class="nav-link text-white english" href="#">Politic news</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white english" href="#">IT news</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white english" href="#">War news</a>
-                  </li>
+                 <?php generate_navlink(); ?>
+                 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white english" href="#" id="myDD" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?php 

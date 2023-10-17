@@ -4,6 +4,10 @@
      include_once "view/nav.php";
     include_once "view/header.php";
     include_once "systemgen/postgenerator.php";
+    if(isset($_GET['category'])){
+      $categoryId = $_GET['category'];
+      
+    }
 ?>
 <div class="container my-3">
     <div class="row g-0">
@@ -13,10 +17,11 @@
           <?php
          
           if(checkSession("username")){
-           showAllPost(2);
+            
+            categoryPost($categoryId,2);
            
           }else{
-            showAllPost(1);
+            categoryPost($categoryId,1);
           }
           
           ?>

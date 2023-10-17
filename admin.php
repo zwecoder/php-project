@@ -17,11 +17,12 @@
                 $posttitle=$_POST["posttitle"];
                 $postwriter=$_POST["postwriter"];
                 $posttype=$_POST["posttype"];
+                $category=$_POST["category"];
                 $postcontent=$_POST["postcontent"];
-                $imglink=mt_rand(time(),time())."-".$_FILES["file"]["name"].mt_rand(time(),time());
+                $imglink=mt_rand(time(),time())."-".$_FILES["file"]["name"];
                 move_uploaded_file($_FILES['file']['tmp_name'],'assets/upload/'.$imglink);
                 
-               $bol = insertPost($posttitle,$postwriter,$posttype,$postcontent,$imglink);
+               $bol = insertPost($posttitle,$postwriter,$posttype,$category,$postcontent,$imglink);
                 if($bol>0){
                     echo "<div class='container'><div class='alert alert-warning alert-dismissible fade show' role='alert'>
                     New Product created successfully!
@@ -53,6 +54,11 @@
                     <option value="1">free</option>
                     <option value="2">paid</option>
                 </select>
+                <label for="category" class="english">Post category</label>
+                <select class="form-select english" name="category" aria-label="select post type">
+                    <option selected> select category</option>
+                    <?php generate_category(); ?>
+                </select>
                 <div class="mb-3">
                     <label for="formFile" class="form-label english">Default file input example</label>
                     <input class="form-control english" type="file" id="formFile" name="file">
@@ -65,6 +71,7 @@
             <button class="btn btn-outline-primary me-2" type="submit" name="cancel">Cancel</button>
             <button class="btn btn-primary" type="submit" name="submit">Post</button>
             </div>
+        </form>
        </section>
     </div>
 </div>
@@ -76,4 +83,7 @@
        }
     }
     
+    include_once "view/footer.php";
+    include_once "view/botton.php";
+       
 ?>
