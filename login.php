@@ -2,7 +2,6 @@
 
 <?php 
  include_once "view/top.php";
-include_once "view/nav.php";
 include_once "systemgen/membership.php";
      
         if(isset($_POST["submit"])){

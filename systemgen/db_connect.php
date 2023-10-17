@@ -78,16 +78,8 @@ function generate_category(){
                  echo "<option value=".$result['id'].">".$result['name']."</option>";
   }
 } 
-function get_category_name($pid){
-  $db=dbConnect();
-  $qry="SELECT category FROM post WHERE id=$pid";
-  $result=mysqli_query($db,$qry);
-  
-  foreach($result as $result){
-    echo $result['category'];
-  }
-}
 
 
+//echo get_category(2);
 
 ?>

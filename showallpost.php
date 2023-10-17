@@ -2,10 +2,6 @@
    
        include_once "view/top.php";
        
-     include_once "view/nav.php";
-    include_once "view/header.php";
-    include_once "systemgen/postuploader.php";
-    include_once "systemgen/postgenerator.php";
     if(checkSession("username")==null){
         header("location:index.php"); 
     }
@@ -27,6 +23,7 @@
                     <th>postwriter</th>
                     <th>postcontent</th>
                     <th>imglink</th>
+                    <th>category</th>
                     <th>created_at</th>
                     <th>tool</th>
                 </thead>
@@ -39,7 +36,8 @@
             echo            "<td>".$data['posttitle']."</td>";
             echo            "<td>".$data['postwriter']."</td>";
             echo            "<td>".substr($data['postcontent'],0,100)."</td>";
-            echo            "<td>".$data['imglink']."</td>";
+            echo            "<td>".$data['imglink']."</td>";                   
+            echo            "<td>".$data['category']."</td>";
             echo            "<td>".$data['created_at']."</td>";
             echo            "<td><a href='postEdit.php?pid=$postid' class='btn btn-sm btn-danger'>Edit</a></td>";
             echo        "</tr>";

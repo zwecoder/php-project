@@ -1,9 +1,8 @@
 <?php
    
        include_once "view/top.php";
-     include_once "view/nav.php";
-    include_once "view/header.php";
-    include_once "systemgen/postgenerator.php";
+
+   
     if(isset($_GET['category'])){
       $categoryId = $_GET['category'];
       

@@ -2,10 +2,7 @@
    
        include_once "view/top.php";
        
-     include_once "view/nav.php";
-    include_once "view/header.php";
-    include_once "systemgen/postuploader.php";
-    include_once "systemgen/postgenerator.php";
+   
     if(checkSession("username")==null){
         header("location:index.php"); 
     }
@@ -28,7 +25,7 @@
         if(isset($_POST["submit"])){
        
             if($_FILES["file"]["name"]==null){
-             $newImg=$post["imglink"];//old image
+           $newImg=$post["imglink"];//old image
             }else{
              $newImg=mt_rand(time(),time())."-".$_FILES["file"]["name"];
             move_uploaded_file($_FILES["file"]["tmp_name"],"assets/upload/".$newImg);
@@ -67,6 +64,10 @@
                     <option selected> select category</option>
                     <?php generate_category(); ?>
                 </select>
+                <div class="mb-3" style="width:200px;">
+                <label for="formFile" class="form-label english">edit image</label>
+                <img src='assets/upload/<?php echo $post["imglink"];?>' class="rounded img-fluid" alt="...">
+                </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label english">Edit file input</label>
                     <input class="form-control english" type="file" id="formFile" name="file">

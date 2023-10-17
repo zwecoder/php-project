@@ -12,3 +12,8 @@ include_once "systemgen/session.php";?>
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
+<?php 
+ include_once "view/nav.php";
+ include_once "view/header.php";
+ include_once "systemgen/postuploader.php";
+ include_once "systemgen/postgenerator.php";?>
