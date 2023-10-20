@@ -2,9 +2,7 @@
    
        include_once "view/top.php";
        
-     include_once "view/nav.php";
-    include_once "view/header.php";
-    include_once "systemgen/postuploader.php";
+    
     if(checkSession("username")==null){
         header("location:index.php"); 
     }

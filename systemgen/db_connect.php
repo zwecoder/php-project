@@ -22,7 +22,7 @@ function loginUserCheck($email,$password){
   foreach($result as $res){
     $username=$res['name'];
   }
-  echo $username;
+ // echo $username;
   setSession("username",$username);
     setSession("email",$email);
   return "login success";

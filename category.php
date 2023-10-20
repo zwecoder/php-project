@@ -2,13 +2,37 @@
    
        include_once "view/top.php";
 
-   
-    if(isset($_GET['category'])){
-      $categoryId = $_GET['category'];
       
-    }
+
+   if(isset($_GET['category'])){
+      $categoryId = $_GET['category'];
+      }
+      $start =0;//pagination
+      if(isset($_GET['page'])){
+        $start = $_GET['page'];
+      }
 ?>
 <div class="container my-3">
+<div class="d-flex justify-content-center"> <!-- pagination start -->
+  <ul class="pagination">
+  <li class="page-item"><a class="page-link" href="index.php">previous</a></li>
+  <?php
+   $pagination=0;
+   if(checkSession("username")){
+    $row=getPostCountMemberCategory($categoryId);
+    
+   }else{
+    $row=getPostCountNonMemberCategory($categoryId);
+   }
+   
+   for($i=0; $i<$row ;$i+=9){
+     $pagination++;
+     echo '<li class="page-item"><a class="page-link" href="category.php?category='.$categoryId.'&page='.$i.'">'.$pagination.'</a></li>';
+ }
+ ?>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</div><!-- pagination end -->
     <div class="row g-0">
         <?php //include_once "view/sidebar.php"; ?>
       <section class="col-md-12">
@@ -17,10 +41,10 @@
          
           if(checkSession("username")){
             
-            categoryPost($categoryId,2);
+            categoryPost($categoryId,2,$start);
            
           }else{
-            categoryPost($categoryId,1);
+            categoryPost($categoryId,1,$start);
           }
           
           ?>
