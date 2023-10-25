@@ -31,6 +31,15 @@ function getAllPostAdmin(){
     $result=mysqli_query($db,$qry);
     return $result;
 }
+function getCategory($postid){//$postid
+    $db=dbConnect();
+    $qry="SELECT * FROM post INNER JOIN category on category.id=post.category AND post.id=$postid";
+    $result=mysqli_query($db,$qry);
+     foreach($result as $category){
+        return $category['name'];
+     }
+}
+
 function categoryPost($categoryId,$type,$start){
     $db=dbConnect();
     if($type==1){
@@ -50,6 +59,7 @@ function categoryPost($categoryId,$type,$start){
         echo "</div></div>";
     }
 }
+
 //pagination  
     function getPostCountMember(){
     $db=dbConnect();

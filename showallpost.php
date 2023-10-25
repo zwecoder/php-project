@@ -28,16 +28,18 @@
                     <th>tool</th>
                 </thead>
                 <?php
+                
                 $result=getAllPostAdmin();
                 foreach($result as $data){
                         $postid=$data['id'];
+                       
             echo    "<tbody>";
             echo        "<tr>";
             echo            "<td>".$data['posttitle']."</td>";
             echo            "<td>".$data['postwriter']."</td>";
             echo            "<td>".substr($data['postcontent'],0,100)."</td>";
             echo            "<td>".$data['imglink']."</td>";                   
-            echo            "<td>".$data['category']."</td>";
+            echo            "<td>".getCategory($postid)."</td>";
             echo            "<td>".$data['created_at']."</td>";
             echo            "<td><a href='postEdit.php?pid=$postid' class='btn btn-sm btn-danger'>Edit</a></td>";
             echo        "</tr>";
